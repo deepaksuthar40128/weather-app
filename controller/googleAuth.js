@@ -7,7 +7,7 @@ export default function (passport) {
     passport.use(new GoogleStrategy({
         clientID: process.env.GoogleclientId,
         clientSecret: process.env.GoogleclientSecret,
-        callbackURL: "https://hello-weather.vercel.app/google/callback"
+        callbackURL: "https://hello-live-weather.vercel.app/google/callback"
     }, async (accessToken, refreshToken, profile, done) => {
         user.findOne({ email: profile.emails[0].value }).then(async (data) => {
             if (data) {
