@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://kit.fontawesome.com/c538c9717e.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+    <div class="app-wrap">
+        <nav>
+            <div class="mainNav">
+                <button id="login_btn" onClick="location.replace('/google')"
+                    style="max-height: 50px;display: none;">Login with Google</button>
+                <button id="homeBtn" onclick="loadHomeCity()" style="display: none; max-height: 50px;">Home
+                    City</button>
+                <button onclick="loadCurrentCity()" style=" max-height: 50px;">Current Location</button>
+            </div>
+            <div class="mainNav" id="nav2" style="right: 0; display: none; border-radius: 0 0 0 20px;">
+                <button id="logoutBtn" onClick="logout()" style="display: none; max-height: 50px;">Logout</button>
+                <div id="profile" style="display: none;" class="profile">
+                    <img src="img/icons/user.png" alt="">
+                    <span>Deepak Suthar</span>
+                </div>
+            </div>
+        </nav>
+        <div class="line-container">
+            <div class="line line-1"></div>
+            <div class="line line-2"></div>
+            <div class="line line-3"></div>
+        </div>
+        <div class="menu">
+            <div class="menu-center">
+                <div id="homeBtn2" style="display: none;" onclick="loadHomeCity()" class="menu-item">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </div>
+                <div id="loginBtn2" style="display: none;" onClick="location.replace('/google')" class="menu-item">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                    <span>Login</span>
+                </div>
+                <div onclick="loadCurrentCity()" class="menu-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Current</span>
+                </div>
+                <div id="logout2" style="display: none;" onClick="logout()" class="menu-item">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </div>
+            </div>
+            <div class="menu-bottom">
+                <div id="profile2" class="menu-bottom-user">
+                    <img src="https://images.pexels.com/photos/5944321/pexels-photo-5944321.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+                        alt="">
+                    <span>John Doe</span>
+                </div>
+            </div>
+        </div>
+        <main>
+            <section class="location">
+                <div class="city"> Loading... </div>
+                <div class="date">Loading...</div>
+            </section>
+            <div class="current">
+                <div class="icon">
+                    <img src="img/icons/clear-sky.png" alt="clear sky">
+                </div>
+                <div class="temp">15<span>°c</span></div>
+                <div class="hi-low">13°c / 16°c</div>
+                <div class="weather">Sunny</div>
+            </div>
+            <div class="graph">
+                <canvas id="temperatureChart" height="200"></canvas>
+            </div>
+            <div id="popup" class="popup">
+                <div id="popc" class="popup-content">
+                    <span class="close" id="closePopupBtn">&times;</span>
+                    <h2 style="margin-bottom: 20px;">City Search</h2>
+                    <form id="myform">
+                        <input type="text" id="cityInput" name="city" placeholder="Enter city name">
+                        <button id="searchBtn">Search</button>
+                    </form>
+                </div>
+            </div>
+            <div class="average">
+                <div>Average</div>
+                <div class="temp">30°C</div>
+                <div class="lowHigh"> 30°C/30°C</div>
+            </div>
+        </main>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
